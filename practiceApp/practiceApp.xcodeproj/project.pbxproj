@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1582881F6BA6B20008567A /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1582871F6BA6B20008567A /* RatingControl.swift */; };
 		8EECC9051F6B722000E30C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EECC9041F6B722000E30C82 /* AppDelegate.swift */; };
 		8EECC9071F6B722000E30C82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EECC9061F6B722000E30C82 /* ViewController.swift */; };
 		8EECC90A1F6B722000E30C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EECC9081F6B722000E30C82 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E1582871F6BA6B20008567A /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8EECC9011F6B722000E30C82 /* practiceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practiceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EECC9041F6B722000E30C82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EECC9061F6B722000E30C82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				8EECC9041F6B722000E30C82 /* AppDelegate.swift */,
 				8EECC9061F6B722000E30C82 /* ViewController.swift */,
+				8E1582871F6BA6B20008567A /* RatingControl.swift */,
 				8EECC9081F6B722000E30C82 /* Main.storyboard */,
 				8EECC90B1F6B722000E30C82 /* Assets.xcassets */,
 				8EECC90D1F6B722000E30C82 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EECC9071F6B722000E30C82 /* ViewController.swift in Sources */,
+				8E1582881F6BA6B20008567A /* RatingControl.swift in Sources */,
 				8EECC9051F6B722000E30C82 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +509,7 @@
 				8EECC92B1F6B722000E30C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8EECC92C1F6B722000E30C82 /* Build configuration list for PBXNativeTarget "practiceAppTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				8EECC92E1F6B722000E30C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8EECC92F1F6B722000E30C82 /* Build configuration list for PBXNativeTarget "practiceAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				8EECC9311F6B722000E30C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
