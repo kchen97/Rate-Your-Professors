@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0yJ-jJ-guC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V10-9Q-dvK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Professor-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="practiceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ProfessorViewController" customModule="practiceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,22 +26,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OFw-oK-Irs">
                                 <rect key="frame" x="16" y="28" width="343" height="424.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Professor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5n-ry-0c1">
-                                        <rect key="frame" x="110" y="0.0" width="123" height="6.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your classes here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Th6-p5-lhf">
-                                        <rect key="frame" x="0.0" y="14.5" width="343" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your classes here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Th6-p5-lhf">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6f4-Zy-n8Y">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6f4-Zy-n8Y">
                                         <rect key="frame" x="11.5" y="52.5" width="320" height="320"/>
                                         <subviews>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="InitPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Y4t-8U-nfG">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="InitPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Y4t-8U-nfG">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                                 <gestureRecognizers/>
                                                 <connections>
@@ -75,38 +69,69 @@
                             <constraint firstItem="OFw-oK-Irs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="xaZ-ky-h5c"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Professor" id="NXB-SE-fSA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5BG-ON-3kh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QL1-Kp-hDw">
+                            <connections>
+                                <segue destination="3vK-0c-pl2" kind="unwind" unwindAction="unwindToProfessorListWithSender:" id="KcW-ZQ-ZAb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="nameLabelField" destination="S5n-ry-0c1" id="Ig7-1d-Bcg"/>
                         <outlet property="nameTextField" destination="Th6-p5-lhf" id="60V-0L-7hG"/>
                         <outlet property="photoImageView" destination="Y4t-8U-nfG" id="UcO-fA-vvl"/>
                         <outlet property="ratingControl" destination="cnc-iu-VuU" id="8cN-Qu-ujf"/>
+                        <outlet property="saveButton" destination="QL1-Kp-hDw" id="IaE-KO-QT1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="3vK-0c-pl2" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="kcH-uc-NSu">
                     <connections>
                         <action selector="changeImageTapGesture:" destination="BYZ-38-t0r" id="l32-qn-GpA"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="273" y="44"/>
+            <point key="canvasLocation" x="2506" y="44"/>
         </scene>
-        <!--Table View Controller-->
+        <!--CCSF Professors-->
         <scene sceneID="Pl2-b6-oNO">
             <objects>
-                <tableViewController id="0yJ-jJ-guC" sceneMemberID="viewController">
+                <tableViewController id="0yJ-jJ-guC" customClass="ProfessorTableViewController" customModule="practiceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="OXr-9X-lDS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yJU-1c-Xwq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfessorTableViewCell" rowHeight="90" id="yJU-1c-Xwq" customClass="ProfessorTableViewCell" customModule="practiceApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yJU-1c-Xwq" id="Vab-Z1-Ldb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InitPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="DEp-WP-ihL">
+                                            <rect key="frame" x="0.0" y="-19" width="95" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL9-0F-4Pa">
+                                            <rect key="frame" x="103" y="8" width="264" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sft-rT-Mmn" customClass="RatingControl" customModule="practiceApp" customModuleProvider="target">
+                                            <rect key="frame" x="103" y="38" width="252" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </stackView>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="professorImageView" destination="DEp-WP-ihL" id="oD6-97-nff"/>
+                                    <outlet property="professorNameLabel" destination="UL9-0F-4Pa" id="kSE-1l-Ski"/>
+                                    <outlet property="professorRatingControl" destination="sft-rT-Mmn" id="czz-4D-B7p"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -114,10 +139,53 @@
                             <outlet property="delegate" destination="0yJ-jJ-guC" id="NZ7-Ox-QUs"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="CCSF Professors" id="4xT-VY-Tvf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CGw-zO-ywC">
+                            <connections>
+                                <segue destination="Kh5-td-QaK" kind="show" id="v7h-eg-6l5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Utb-kJ-lcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-356" y="44"/>
+            <point key="canvasLocation" x="583.20000000000005" y="43.628185907046479"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k28-0K-xeV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V10-9Q-dvK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="66z-dh-dw8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0yJ-jJ-guC" kind="relationship" relationship="rootViewController" id="B4I-Xa-vJe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0U-OC-JkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-356" y="43.628185907046479"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZBS-5w-pYy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kh5-td-QaK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aHJ-nP-U4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="V4l-EI-zna"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6v-Yb-ORD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="44"/>
         </scene>
     </scenes>
     <resources>

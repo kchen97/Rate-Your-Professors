@@ -10,14 +10,15 @@ import UIKit
 
 class ProfessorTableViewController: UITableViewController {
 
+    //Mark: Properties
+    var professors = [Professor]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //Load sample data
+        loadSampleProfessors()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +29,35 @@ class ProfessorTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return professors.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cellIdentifier = "ProfessorTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ProfessorTableViewCell else
+        {
+            fatalError("The deequeued cell is not an instance of ProfessorTableViewCell")
+        }
+        
+        let professor = professors[indexPath.row]
 
-        // Configure the cell...
+        cell.professorNameLabel.text = professor.name
+        cell.professorImageView.image = professor.photo
+        cell.professorRatingControl.rating = professor.rating
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,5 +103,35 @@ class ProfessorTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    //Mark: Actions
+    @IBAction func unwindToProfessorList(sender: UIStoryboardSegue)
+    {
+        if let sourceViewController = sender.source as? ProfessorViewController, let Professor = sourceViewController.ccsfProf {
+            
+            let newIndexPath = IndexPath(row: professors.count, section: 0)
+            professors.append(Professor)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    
+    //Mark: Private Functions
+    private func loadSampleProfessors()
+    {
+        let photo1 = UIImage(named: "KitKat")
+        let photo2 = UIImage(named: "Dog")
+        
+        guard let prof1 = Professor(name: "KitKat", photo: photo1, rating: 4) else
+        {
+            fatalError("Unable to instantiate professor")
+        }
+        
+        guard let prof2 = Professor(name: "Dog", photo: photo2, rating: 5) else
+        {
+            fatalError("Unable to instantiate professor")
+        }
+        
+        professors += [prof1, prof2]
+    }
 }

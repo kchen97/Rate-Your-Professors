@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProfessorViewController.swift
 //  practiceApp
 //
 //  Created by Korman Chen on 9/14/17.
@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import os.log
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfessorViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //Mark: Properties
 
-    @IBOutlet weak var nameLabelField: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+
+    var ccsfProf: Professor?
     
     
     override func viewDidLoad() {
@@ -38,8 +41,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        nameTextField.text = textField.text
+        
     }
+    
     //Mark: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
@@ -56,6 +60,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         photoImageView.image = selectedImage
         dismiss(animated: true, completion: nil)
+    }
+    
+    //Mark: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        super.prepare(for: segue, sender: sender)
+        
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameTextField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        
+        ccsfProf = Professor(name: name, photo: photo, rating: rating)
     }
     
     //Mark: Actions

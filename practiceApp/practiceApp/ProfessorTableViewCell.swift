@@ -9,7 +9,14 @@
 import UIKit
 
 class ProfessorTableViewCell: UITableViewCell {
-
+    
+    //Mark: Properties
+    @IBOutlet weak var professorNameLabel: UILabel!
+    @IBOutlet weak var professorImageView: UIImageView!
+    @IBOutlet weak var professorRatingControl: RatingControl!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
