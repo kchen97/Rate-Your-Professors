@@ -70,7 +70,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Professor" id="NXB-SE-fSA">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5BG-ON-3kh"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5BG-ON-3kh">
+                            <connections>
+                                <action selector="cancelButton:" destination="BYZ-38-t0r" id="IkH-q2-BKr"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="QL1-Kp-hDw">
                             <connections>
                                 <segue destination="3vK-0c-pl2" kind="unwind" unwindAction="unwindToProfessorListWithSender:" id="KcW-ZQ-ZAb"/>
@@ -78,6 +82,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButtonAction" destination="5BG-ON-3kh" id="KvS-HW-qmE"/>
                         <outlet property="nameTextField" destination="Th6-p5-lhf" id="60V-0L-7hG"/>
                         <outlet property="photoImageView" destination="Y4t-8U-nfG" id="UcO-fA-vvl"/>
                         <outlet property="ratingControl" destination="cnc-iu-VuU" id="8cN-Qu-ujf"/>

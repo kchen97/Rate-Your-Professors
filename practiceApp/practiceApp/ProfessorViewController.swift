@@ -25,6 +25,9 @@ class ProfessorViewController: UIViewController, UITextFieldDelegate, UIImagePic
         
         //Handle the text fields input through delegate callbacks
         nameTextField.delegate = self
+        
+        //Enable save button only if the text field has a valid name
+        updateSaveButtonState()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +36,11 @@ class ProfessorViewController: UIViewController, UITextFieldDelegate, UIImagePic
     }
 
     //Mark: UITextFieldDelegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //Disable the save button while editing
+        saveButton.isEnabled = false
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Hide the keyboard
         textField.resignFirstResponder()
@@ -41,7 +49,8 @@ class ProfessorViewController: UIViewController, UITextFieldDelegate, UIImagePic
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     //Mark: UIImagePickerControllerDelegate
@@ -63,6 +72,12 @@ class ProfessorViewController: UIViewController, UITextFieldDelegate, UIImagePic
     }
     
     //Mark: Navigation
+    @IBAction func cancelButton(_ sender: UIBarButtonItem)
+    {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         super.prepare(for: segue, sender: sender)
@@ -89,6 +104,11 @@ class ProfessorViewController: UIViewController, UITextFieldDelegate, UIImagePic
         present(imagePickerController, animated: true, completion: nil)
     }
     
-
+    //Mark: Private Functions
+    private func updateSaveButtonState()
+    {
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
 }
 
